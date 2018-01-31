@@ -1,0 +1,90 @@
+Juan Zamudio
+Rosario Huamani Carpio
+January 31st, 2018
+Lab02: Debugger
+
+Problem 1
+--------------------------------------------------------
+
+1)
+  If we go past the breakpoint, we get a Segmentation Fault (Signal SIGSEGV).
+
+2)
+  The file is problem1.c and the line number is 17.
+
+3)
+  No we can't see the value that is passed because it was optimized out
+  (nptr = <optimized out>).
+
+4)
+  0x0 - Null Pointer
+
+5)
+  -1835 ([Inferior 1 (process 10269) exited normally])
+
+6)
+  argc = 2
+  argv[] = [0x7fffffffec33 "/home/jzamudio/Desktop/CS105/Debugger/problem1",
+    0x7fffffffec62 "5"]
+
+  The elements of argv[] came from the commands that were passed on the command
+  line. The first element is the program name (given by program path) and the
+  second element came from the argument passed to run, which was 5. Thus, that
+  is why argc has a value of 2.
+
+7)
+  We wind up in problem1.c, line 5, in the loop_while function.
+
+8)
+  We see the lines of problem1.c up until line 10:
+
+        1	#include <stdio.h>
+        2
+        3	int loop_while(int a, int b)
+        4	{
+        5	    int i = 0;
+        6	    int result = a;
+        7	    while (i < 256) {
+        8		result += a;
+        9		a -= b;
+        10		i += b;
+
+  After hitting the return key, we see the following lines of the program:
+
+        11	    }
+        12	    return result;
+        13	}
+        14
+        15	int main(int argc, char *argv[])
+        16	{
+        17	    printf("%d\n", loop_while(atoi(argv[1]), 16));
+        18	    return 0;
+        19	}
+
+9)
+  The return key runs the program step by step like an instruction counter.
+
+10)
+  a = 5
+  b = 16
+  result = 32767
+
+11)
+  Lines 6, 5, 8, 9:
+
+        6 - int result = a;
+        5	- int i = 0;
+        8	- result += a;
+        9	- a -= b;
+
+  The debugger is showing us these lines in this order because the compiler is
+  reorganizing the lines for optimization, so they're not in the same order as
+  the source code, although switching the order of lines 5 and 6 actually
+  doesn't matter.
+
+12)
+  atoi: 0x4004ba
+  printf: 0x4004e7
+
+13)
+  
