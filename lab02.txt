@@ -4,7 +4,7 @@ January 31st, 2018
 Lab02: Debugger
 
 Problem 1
---------------------------------------------------------
+-------------------------------------------------------------------------------------------------
 
 1)
   If we go past the breakpoint, we get a Segmentation Fault (Signal SIGSEGV).
@@ -87,4 +87,37 @@ Problem 1
   printf: 0x4004e7
 
 13)
+  There is no call to loop_while.
+
+14)
+  a) print/x 42 prints the hexadecimal number from a decimal number 42 (print/x 42 = 0x2a)
+	b) p 0x2f prints the decimal number 47 from a hexadecimal number 0x2f (p 0x2f = 47)
+
+15)
+  The constant in the sub comes from the int value of parameter b, which is 16
+
+16)
+  Since main was optimized, the call to loop_while happens inside the main function.
+
+
+Problem 2
+------------------------------------------------------------------------------------------------
+
+1)
+  $1 = 1078530011
+
+2)
+  $2 = 0x40490fdb - it could be more edifying because it's the integer from above but as
+  a hexadecimal value but it could tell us something.
+
+3)
+  0x601060 <puzzle1>:	0xdb	0x0f	0x49	0x40:
+
+  The output is the result of (2) split into its four different byte components. 
+  In other words, the output is the result of splitting 0x40490fdb into four byte segments.
+  What is interesting is that the result of 'x/4bx &puzzle1' is the hex digit value from (2)
+  but in reverse order. So, the int from (1) is stored in memory from least signifcant bytes
+  to most signifcant bytes.
+
+4)
   
