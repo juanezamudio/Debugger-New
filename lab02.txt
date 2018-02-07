@@ -178,4 +178,63 @@ Problem 3
 ---------------------------------------------------------------------------------------------------
 
 1)
+  The output is 1 47 2 42 3.
 
+2)
+  It stops at line 33:
+
+  33	    array = (int *)malloc(argc * sizeof(int));
+
+3)
+  Now it stops at line 35:
+
+  35	    for (i = 1;  i < argc;  i++) {
+
+4) 
+  No, it just returns the result: 1 47 2 42 3.
+
+5)
+  It corresponds to the initialization of i to 1.
+
+6)
+  It tells us that line we are at is line 36.
+
+7)
+  The contents of the array are: {0, 1, 42, 2, 47, 0}
+
+8)	
+  We stop at the third breakpoint which is at line 36.
+
+9)
+  The registers that have not be covered in class are rcx, eflags, ds, es, fs, gs.
+
+10) 
+  The flags set right now are IF and PF 
+
+11) 
+  The value is 6299664.
+
+  The other value (0x602010) is not meaningful. It is the same except in hexadecimal.
+
+12)
+  “x/16i” starts at fix_array+15 and goes to fix_array+61 while the other one starts from the 
+  beginning and runs the whole thing.
+
+13)
+  We are at line 24.
+
+14) 
+  The address of the instruction to be executed next is 0x0000000000400653.
+
+15)
+  The next instruction for stepi is line 10. The next instruction for nexti is 23. 
+
+16)
+  It is line 26.
+
+17)
+  Value of rsp is : 0x7fffffffe890
+  Value of rbp is : 0x7fffffffe8b0
+
+18)
+  It says there are no registers.
