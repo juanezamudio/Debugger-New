@@ -4,7 +4,7 @@ January 31st, 2018
 Lab02: Debugger
 
 Problem 1
--------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 1)
   If we go past the breakpoint, we get a Segmentation Fault (Signal SIGSEGV).
@@ -101,7 +101,7 @@ Problem 1
 
 
 Problem 2
-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 1)
   $1 = 1078530011
@@ -120,7 +120,62 @@ Problem 2
   to most signifcant bytes.
 
 4)
-  x/fw &puzzle1: 3.14159274 = PI!
+  x/fw &puzzle1: 3.14159274 ~ PI!
 
 5)
-  No. The value is not correct. The value is slightly wrong because
+  No. The value is not correct. The value is slightly wrong because an int is less precise than
+  a float so when we cast the value of pi as an int we lose precision and what we get back when we
+  convert back to a float is the value of pi as precise as we can get it as an int.
+
+6)
+  x/fg &puzzle2: 2.7182818284590451 ~ e!
+
+7)
+  Yes, because it is suppose to be an array of ints, but it turns out to be an irrational number.
+
+8)
+  No, it is not correct. It is almost correct, but the last digit is different from the actual 
+  value of e because, even though we have more precision with 8 bytes (2 ints from the values in
+  the array), the value of e needs more than 8 bytes to be completely represented. Thus, the two
+  int values can only get to a certain degree of precision.
+
+9)
+  x/sb &puzzle3: "Was that really so hard?"
+
+10)
+  No, you don’t need a print statement because gdb already prints out a value for a_size at the breakpoint.
+
+11)
+  a = 0x602010
+
+12)
+  a = 0x602010
+
+13)
+  a = 0x602014
+  i = 1
+
+14)
+  We end up at the beginning of the for-loop on line 23.
+
+15)
+  a = 0x602018
+
+16)
+  p *a: 1
+
+17)
+  Line 24: *a = hmc_pomona_fix(*a);
+
+18)
+  a = 0x602030
+
+19)
+  p *a: 21
+
+
+Problem 3
+---------------------------------------------------------------------------------------------------
+
+1)
+
