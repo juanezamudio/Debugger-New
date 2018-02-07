@@ -116,8 +116,11 @@ Problem 2
   The output is the result of (2) split into its four different byte components. 
   In other words, the output is the result of splitting 0x40490fdb into four byte segments.
   What is interesting is that the result of 'x/4bx &puzzle1' is the hex digit value from (2)
-  but in reverse order. So, the int from (1) is stored in memory from least signifcant bytes
+  but in reverse order. So, the "int" from (1) is stored in memory from least signifcant bytes
   to most signifcant bytes.
 
 4)
-  
+  x/fw &puzzle1: 3.14159274 = PI!
+
+5)
+  No. The value is not correct. The value is slightly wrong because
